@@ -4,11 +4,10 @@ def turn(board)
   index = input_to_index(user_input)
   if !valid_move?(board, index)
     turn(board)
-    return
+  else
+    move(board, index, player = "X")
+    display_board(board)
   end 
-  move(board, index, player = "X")
-  display_board(board)
-  return
 end
 def valid_move?(board, index)
   return position_taken?(board, index) && index.between?(0,8)
